@@ -227,3 +227,108 @@ footer {
     width: 100%;
     height: 100
 }
+/* Media Queries para dispositivos móviles */
+@media (max-width: 768px) {
+    /* Ajustar el header */
+    header {
+        padding: 2rem 1rem;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    header p {
+        font-size: 1.2rem;
+    }
+
+    /* Ajustar la navegación */
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav .nav-links {
+        margin-top: 1rem;
+    }
+
+    nav .nav-links li {
+        display: block;
+        margin: 0.5rem 0;
+    }
+
+    /* Ajustes de la sección hero */
+    .hero {
+        height: auto;
+        padding: 2rem 1rem;
+    }
+
+    .hero .content h2 {
+        font-size: 1.8rem;
+    }
+
+    .hero .content p {
+        font-size: 1rem;
+    }
+
+    button.explore-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    /* Ajustar el carrusel */
+    .carousel-item {
+        flex: 0 0 100%;
+    }
+
+    .carousel-item img {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .carousel-control {
+        font-size: 1.5rem;
+    }
+
+    /* Ajustes de la sección de productos */
+    .products {
+        padding: 2rem 1rem;
+    }
+
+    .products h2 {
+        font-size: 1.8rem;
+    }
+
+    /* Ajustar el footer */
+    footer {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Ajustes para pantallas aún más pequeñas (teléfonos muy pequeños) */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    nav .nav-links li {
+        margin: 0.3rem 0;
+    }
+
+    .hero .content h2 {
+        font-size: 1.5rem;
+    }
+
+    .hero .content p {
+        font-size: 0.9rem;
+    }
+
+    .carousel-item img {
+        width: 90%;
+    }
+}
