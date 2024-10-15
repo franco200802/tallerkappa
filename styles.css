@@ -1,4 +1,11 @@
-/* Estilos generales */
+:root {
+    --primary-color: #333;
+    --secondary-color: #f4f4f4;
+    --accent-color: #de323b;
+    --text-color: #333;
+    --text-light: #ffffff;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,148 +14,153 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--secondary-color);
 }
 
-/* Estilos del header */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header y navegación */
 header {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 4rem 2rem;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 2rem 0;
     position: relative;
-    overflow: hidden;
 }
 
-header h1 {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    font-weight: bold;
-    position: relative;
-    z-index: 1;
-}
-
-header p {
-    font-size: 1.5rem;
-    color: #ccc;
-    position: relative;
-    z-index: 1;
-}
-
-.bloom-effect {
-    color: #191d26;
-}
-.nombrerojo{
-   color:rgb(222 50 59);
-}
-
-/* Fondo de resplandor suave */
-header::before {
-    content: '';
-    position: absolute;
+#navbar {
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgb(116 117 128 / 60%), transparent);
-    z-index: 0;
+    right: 0;
+    background-color: rgba(34, 34, 34, 0.9);
+    padding: 1rem 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
 }
 
-/* Estilos para el logo en la navegación */
+#navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .nav-logo {
     display: flex;
     align-items: center;
-    color: #ffffff;
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: bold;
 }
 
 .logo-img {
     width: 50px;
+    height: 50px;
     margin-right: 10px;
-    height: auto; /* Mantiene la proporción de la imagen */
-    max-height: 100%; /* Asegúrate de que no se desborde */
-    object-fit: cover; /* Asegura que la imagen se ajuste sin distorsionarse */
-    border-radius: 70%; /* Esto redondea el logo */
+    border-radius: 50%;
 }
 
-/* Estilos de la navegación */
-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: #222;
-    padding: 1rem;
+.nav-links {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
-}
-
-nav .nav-links {
     list-style: none;
 }
 
-nav .nav-links li {
-    display: inline;
-    margin: 0 1rem;
+.nav-links li {
+    margin-left: 2rem;
 }
 
-nav .nav-links a {
-    color: white;
+.nav-links a {
+    color: var(--text-light);
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-/* Sección hero */
-.hero {
-    background-color: #555;
-    color: white;
-    height: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+.nav-links a:hover {
+    color: var(--accent-color);
 }
 
-.hero .content h2 {
-    font-size: 2.5rem;
-    color: #eee;
-}
-
-.hero .content p {
-    font-size: 1.2rem;
-    color: #ccc;
-}
-
-button.explore-btn {
-    background-color: #444;
-    color: white;
+#menu-toggle {
+    display: none;
+    background: none;
     border: none;
-    padding: 1rem 2rem;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--text-light);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hero section */
+.hero {
+    text-align: center;
+    padding: 4rem 0 2rem;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.bloom-effect {
+    animation: bloom 2s ease-in-out;
+}
+
+@keyframes bloom {
+    0% { opacity: 0; transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.nombrerojo {
+    color: var(--accent-color);
+}
+
+.explore-btn {
+    background-color: var(--accent-color);
+    color: var(--text-light);
+    border: none;
+    padding: 0.8rem 2rem;
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-button.explore-btn:hover {
-    background-color: #666;
+.explore-btn:hover {
+    background-color: #b82730;
 }
 
-/* Sección de productos */
+/* Productos */
 .products {
-    padding: 4rem 2rem;
-    text-align: center;
-    background-color: #fff;
+    padding: 4rem 0;
+    background-color: var(--text-light);
 }
 
 .products h2 {
+    text-align: center;
     margin-bottom: 2rem;
-    color: #333;
 }
 
 .carousel {
     position: relative;
-    max-width: 100%;
     overflow: hidden;
 }
 
@@ -158,18 +170,33 @@ button.explore-btn:hover {
 }
 
 .carousel-item {
-    flex: 0 0 33.33%;
-    padding: 1rem;
+    flex: 0 0 calc(33.33% - 2rem);
+    margin: 0 1rem;
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.carousel-item:hover {
+    transform: translateY(-5px);
 }
 
 .carousel-item img {
     width: 100%;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
+    height: auto;
+    object-fit: cover;
 }
 
-.carousel-item img:hover {
-    transform: scale(1.05);
+.carousel-item h3 {
+    font-size: 1.2rem;
+    margin: 1rem;
+}
+
+.carousel-item p {
+    font-size: 0.9rem;
+    margin: 0 1rem 1rem;
 }
 
 .carousel-control {
@@ -177,158 +204,152 @@ button.explore-btn:hover {
     top: 50%;
     transform: translateY(-50%);
     background-color: rgba(0, 0, 0, 0.5);
-    color: white;
+    color: var(--text-light);
     border: none;
     font-size: 2rem;
     cursor: pointer;
     padding: 0.5rem 1rem;
+    z-index: 10;
 }
 
-.carousel-control.prev {
-    left: 10px;
-}
+.carousel-control.prev { left: 10px; }
+.carousel-control.next { right: 10px; }
 
-.carousel-control.next {
-    right: 10px;
-}
-
-/* Sección de contacto */
+/* Contacto */
 .contact {
-    padding: 2rem;
-    background-color: #f4f4f4;
+    padding: 4rem 0;
     text-align: center;
+}
+
+.contact a {
+    color: var(--accent-color);
+    text-decoration: none;
 }
 
 /* Footer */
 footer {
-    background-color: #333;
-    color: white;
-    padding: 1rem;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 2rem 0;
     text-align: center;
 }
 
-/* Redes sociales */
-.social-media {
-    padding: 2rem;
-    background-color: #fff;
-    text-align: center;
+.social-icons {
+    margin-top: 1rem;
 }
 
 .social-icons a {
-    color: #333;
-    margin: 0 1rem;
-    font-size: 2rem;
+    color: var(--text-light);
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
+    transition: color 0.3s ease;
 }
 
+.social-icons a:hover {
+    color: var(--accent-color);
+}
+
+/* Lightbox */
 .lightbox {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1100;
 }
-/* Media Queries para dispositivos móviles */
+
+.lightbox.show {
+    display: flex;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+}
+
+/* Preloader */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+body.loaded #preloader {
+    display: none;
+}
+
+/* Media queries */
 @media (max-width: 768px) {
-    /* Ajustar el header */
-    header {
-        padding: 2rem 1rem;
-    }
-
-    header h1 {
-        font-size: 2.5rem;
-    }
-
-    header p {
-        font-size: 1.2rem;
-    }
-
-    /* Ajustar la navegación */
-    nav {
+    .nav-links {
+        display: none;
         flex-direction: column;
-        align-items: flex-start;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: var(--primary-color);
+        padding: 1rem 0;
     }
 
-    nav .nav-links {
-        margin-top: 1rem;
+    .nav-links.show {
+        display: flex;
     }
 
-    nav .nav-links li {
-        display: block;
+    .nav-links li {
         margin: 0.5rem 0;
     }
 
-    /* Ajustes de la sección hero */
-    .hero {
-        height: auto;
-        padding: 2rem 1rem;
+    #menu-toggle {
+        display: block;
     }
 
-    .hero .content h2 {
-        font-size: 1.8rem;
-    }
-
-    .hero .content p {
-        font-size: 1rem;
-    }
-
-    button.explore-btn {
-        padding: 0.5rem 1rem;
-        font-size: 0.9rem;
-    }
-
-    /* Ajustar el carrusel */
     .carousel-item {
-        flex: 0 0 100%;
-    }
-
-    .carousel-item img {
-        width: 80%;
-        margin: 0 auto;
-    }
-
-    .carousel-control {
-        font-size: 1.5rem;
-    }
-
-    /* Ajustes de la sección de productos */
-    .products {
-        padding: 2rem 1rem;
-    }
-
-    .products h2 {
-        font-size: 1.8rem;
-    }
-
-    /* Ajustar el footer */
-    footer {
-        padding: 1rem;
-        font-size: 0.9rem;
+        flex: 0 0 calc(50% - 2rem);
     }
 }
 
-/* Ajustes para pantallas aún más pequeñas (teléfonos muy pequeños) */
 @media (max-width: 480px) {
-    header h1 {
-        font-size: 2rem;
+    .hero h1 {
+        font-size: 2.5rem;
     }
 
-    header p {
-        font-size: 1rem;
-    }
-
-    nav .nav-links li {
-        margin: 0.3rem 0;
-    }
-
-    .hero .content h2 {
+    .hero h2 {
         font-size: 1.5rem;
     }
 
-    .hero .content p {
-        font-size: 0.9rem;
-    }
-
-    .carousel-item img {
-        width: 90%;
-    }
-}
+    @media (max-width: 480px) {
+        .hero h1 {
+            font-size: 2.5rem;
+        }
+    
+        .hero h2 {
+            font-size: 1.5rem;
+        }
+    
+        .carousel-item {
+            flex: 0 0 calc(100% - 2rem);
+        }
+    
+        .carousel-control {
+            font-size: 1.5rem;
+            padding: 0.3rem 0.8rem;
+        }
+    
+        .explore-btn {
+            padding: 0.6rem 1.5rem;
+            font-size: 0.9rem;
+        }
+    }}
